@@ -600,7 +600,3 @@ Learning. *NeurIPS*.
 Yu, J., Li, X., Koh, J. Y., Zhang, H., Pang, R., Qin, J., Ku, A., Xu, Y., Baldridge, J., &
 Wu, Y. (2022). Vector-quantized Image Modeling with Improved VQGAN. *ICLR*.
 
----
-
-*Citations are from memory and should be verified before external distribution. All
-experimental figures are as reported by the author from a single training run per condition.*
