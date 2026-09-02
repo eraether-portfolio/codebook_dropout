@@ -8,6 +8,10 @@ Eugene Raether, AI Engineer & Researcher @ Qualia Tensor LLC
 
 ![loss graph](images/vqvae_losses.png)
 
+## Update
+
+A new and improved method is available.  Take a look at [headless WTA training](https://github.com/eraether-portfolio/jit-dynamic-codebooks).  At a high level, what you do is: generate codebooks per minibatch using the transformer hypernetwork (seeded with noise).  This learns a k-means-ish distribution of codes.  Then, you cut over and train on these codes directly.  Since the all codes are being used at cutover time (due to the k-means-like nature), you end up with very high codebook utilization with no further losses.  HOWEVER, the writeup below is kept purely because it is a novel finding I have never seen documented before.
+
 ## Abstract
 
 Codebook collapse — the tendency of vector-quantized autoencoders to converge on a small
