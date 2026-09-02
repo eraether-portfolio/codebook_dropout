@@ -10,7 +10,7 @@ Eugene Raether, AI Engineer & Researcher @ Qualia Tensor LLC
 
 ## Update
 
-A new and improved method is available.  Take a look at [headless WTA training](https://github.com/eraether-portfolio/jit-dynamic-codebooks).  At a high level, what you do is: generate codebooks per minibatch using the transformer hypernetwork (seeded with noise).  This learns a k-means-ish distribution of codes.  Then, you cut over and train on these codes directly.  Since the all codes are being used at cutover time (due to the k-means-like nature), you end up with very high codebook utilization with no further losses.  HOWEVER, the writeup below is kept purely because it is a novel finding I have never seen documented before.
+A new and improved method is available.  Take a look at [headless WTA training](https://github.com/eraether-portfolio/jit-dynamic-codebooks).  At a high level, what you do is: generate codebooks per minibatch using the transformer hypernetwork (seeded with noise).  This learns a k-means-ish distribution of codes that cannot collapse by definition, because every single draw is a brand new set of codes.  Then, after roughly ~5k steps you cut over and train on these codes directly.  Since all codes are being used at cutover time (due to the k-means-like nature), you end up with very high codebook utilization with no further loss terms required (except commitment loss, of course, post-cutover).  HOWEVER, the writeup below is kept purely because it is a novel finding I have never seen documented before.
 
 ## Abstract
 
